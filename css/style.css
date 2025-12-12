@@ -67,7 +67,7 @@ body {
     -webkit-text-fill-color: transparent;
 
     letter-spacing: -2px;
-    animation: neon-pulse 3s ease-in-out infinite;
+    /* animation: neon-pulse 3s ease-in-out infinite; */
 }
 
 .subtitle {
@@ -115,4 +115,28 @@ body {
 .btn.secondary:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 100;
+    animation: blink 1s step-end infinite;
+    /* Ensure cursor is visible despite parent text color settings if needed, 
+       but for gradient text we might want it to inherit or be a specific color.
+       Let's try making it white or matching the theme. */
+    color: #4fffff;
+    -webkit-text-fill-color: #4fffff;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }

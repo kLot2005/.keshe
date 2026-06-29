@@ -52,7 +52,7 @@ function App() {
 
       {/* Bento Grid Application Container */}
       <div
-        className={`relative min-h-dvh w-[95dvw] sm:w-xl lg:w-5xl xl:w-7xl mx-auto lg:flex lg:items-center`}
+        className={`main-content relative min-h-dvh w-[95dvw] sm:w-xl lg:w-5xl xl:w-7xl mx-auto lg:flex lg:items-center`}
         style={{
           opacity: loading ? 0 : 1,
           transition: "opacity 1.2s ease-out",
@@ -100,10 +100,10 @@ function App() {
                 <div className="overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
                   <div className="flex-1 flex flex-col justify-center items-center relative z-10">
                     <div className="text-white text-center text-lg font-semibold">
-                      I told you, that's not gonna happen.
+                      Doing nothing is the devil's game
                     </div>
                     <div className="mt-2 text-slate-400 text-sm">
-                      — Jason Statham
+                      — Kama the Bullet
                     </div>
                   </div>
                 </div>

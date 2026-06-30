@@ -5,6 +5,25 @@ import Preloader from "./components/Preloader";
 function App() {
   const [loading, setLoading] = useState(true);
   const containerRef = useRef(null);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateClock = () => {
+      const options = {
+        timeZone: "Asia/Almaty",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const formatter = new Intl.DateTimeFormat("en-US", options);
+      setTime(formatter.format(new Date()));
+    };
+
+    updateClock();
+    const timerId = setInterval(updateClock, 1000);
+    return () => clearInterval(timerId);
+  }, []);
 
   useEffect(() => {
     if (loading) return;
@@ -65,7 +84,7 @@ function App() {
           <div className="flex flex-col gap-4">
             <div className="h-42 grid grid-cols-6 sm:grid-cols-5 gap-4">
               <div className="col-span-3 sm:col-span-2 h-full flex">
-                <div className="overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
+                <div className="bento-card overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
                   <div className="flex-1 flex flex-col gap-6 p-6 relative z-10">
                     <div className="flex gap-6">
                       <div className="bg-slate-700 p-3 rounded-2xl h-fit w-fit">
@@ -76,28 +95,22 @@ function App() {
                           width="24px"
                           fill="#e3e3e3"
                         >
-                          <path d="M450-200v-137.08q-52.08-7.54-91.73-40.73-39.65-33.19-53.81-83.42-69.23-8.23-116.84-58.77Q140-570.54 140-640v-27.69q0-29.83 21.24-51.07Q182.48-740 212.31-740h80.77v-7.69q0-29.83 21.24-51.07Q335.56-820 365.39-820h229.22q29.83 0 51.07 21.24 21.24 21.24 21.24 51.07v7.69h80.77q29.83 0 51.07 21.24Q820-697.52 820-667.69V-640q0 69.46-47.62 120-47.61 50.54-116.84 58.77-14.16 50.23-53.81 83.42-39.65 33.19-91.73 40.73V-200h112.31q12.75 0 21.37 8.63 8.63 8.63 8.63 21.38 0 12.76-8.63 21.37-8.62 8.62-21.37 8.62H337.69q-12.75 0-21.37-8.63-8.63-8.63-8.63-21.38 0-12.76 8.63-21.37 8.62-8.62 21.37-8.62H450ZM293.08-525.69V-680h-80.77q-5.39 0-8.85 3.46t-3.46 8.85V-640q0 41.46 26.23 73.31 26.23 31.84 66.85 41Zm187.01 131.08q52.6 0 89.33-36.8t36.73-89.36v-226.92q0-5.39-3.46-8.85t-8.84-3.46h-227.7q-5.38 0-8.84 3.46t-3.46 8.85v226.92q0 52.56 36.82 89.36t89.42 36.8Zm186.83-131.08q40.62-9.16 66.85-41Q760-598.54 760-640v-27.69q0-5.39-3.46-8.85t-8.85-3.46h-80.77v154.31ZM480-577.31Z"></path>
+                          <path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
                         </svg>
                       </div>
 
-                      <div className="space-y-1">
-                        <div className="text-white text-lg font-semibold">
-                          Ranking
-                        </div>
-                        <div className="text-sm font-medium text-slate-500">
-                          Active GitHub user in KZ
-                        </div>
+                      <div className="text-slate-400 text-sm flex items-center">
+                        <h1 className="items-center">Astana, KZ</h1>
                       </div>
                     </div>
-                  </div>
-                  <div class="absolute left-0 bottom-6 flex items-center gap-3">
-                    <div class="!duration-2000 h-1 bg-slate-700 w-32"></div>
-                    <pre class="text-slate-300 font-semibold">0</pre>
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="text-xl font-bold text-white">{time}</div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="col-span-3 h-full flex">
-                <div className="overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
+                <div className="bento-card overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
                   <div className="flex-1 flex flex-col justify-center items-center relative z-10">
                     <div className="text-white text-center text-lg font-semibold">
                       Doing nothing is the devil's game
@@ -109,7 +122,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1">
+            <div className="bento-card relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1">
               <div className="flex-1 flex flex-col gap-6 p-8 relative z-10">
                 <div className="grow flex flex-col gap-6">
                   <div className="flex gap-6 h-fit items-center">
@@ -217,7 +230,31 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4">Правая колонка</div>
+          <div className="flex flex-col gap-4">
+            <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64">
+              <div className="flex-1 flex flex-col justify-between p-6 relative z-10">
+                <div className="flex gap-4">
+                  <div className="bg-slate-700 p-3 rounded-2xl h-fit w-fit flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#e3e3e3"
+                    >
+                      <path d="M160-240v-480 510-30Zm12.31 60Q142-180 121-201q-21-21-21-51.31v-455.38Q100-738 121-759q21-21 51.31-21H362q14.46 0 27.81 5.62 13.34 5.61 23.19 15.46L471.92-700h315.77Q818-700 839-679q21 21 21 51.31v160.38q0 12.77-8.62 21.39-8.61 8.61-21.38 8.61t-21.38-8.61q-8.62-8.62-8.62-21.39v-160.38q0-5.39-3.46-8.85t-8.85-3.46H447.38l-80-80H172.31q-5.39 0-8.85 3.46t-3.46 8.85v455.38q0 5.39 3.46 8.85t8.85 3.46h179.23q12.77 0 21.38 8.62 8.62 8.61 8.62 21.38t-8.62 21.38q-8.61 8.62-21.38 8.62H172.31Zm381.46-30 65.92 65.92q8.93 8.93 8.93 20.89t-8.93 21.27q-8.92 9.3-21.19 9.11-12.27-.19-21.19-9.11l-82.77-82.77q-10.85-10.85-10.85-25.31 0-14.46 10.85-25.31l82.77-82.77q8.92-8.92 21-9.11 12.08-.19 21.38 9.11 8.93 8.93 8.93 21.08 0 12.15-8.93 21.08L553.77-210Zm261.69 0-65.92-65.92q-8.92-8.93-8.92-20.89t8.92-21.27q8.92-9.3 21.19-9.11 12.27.19 21.19 9.11l82.77 82.77q10.85 10.85 10.85 25.31 0 14.46-10.85 25.31l-82.77 82.77q-8.92 8.92-21 9.11-12.07.19-21.38-9.11-8.92-8.93-8.92-21.08 0-12.15 8.92-21.08L815.46-210Z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4">
+              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 col-span-2"></div>
+
+              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 group"></div>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import GlowEffect from "./components/GlowEffect";
 import ParticlesBg from "./components/ParticlesBg";
 import Preloader from "./components/Preloader";
 
@@ -85,6 +86,7 @@ function App() {
             <div className="h-42 grid grid-cols-6 sm:grid-cols-5 gap-4">
               <div className="col-span-3 sm:col-span-2 h-full flex">
                 <div className="bento-card overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
+                  <GlowEffect />
                   <div className="flex-1 flex flex-col gap-6 p-6 relative z-10">
                     <div className="flex gap-6">
                       <div className="bg-slate-700 p-3 rounded-2xl h-fit w-fit">
@@ -111,6 +113,7 @@ function App() {
               </div>
               <div className="col-span-3 h-full flex">
                 <div className="bento-card overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1 relative">
+                  <GlowEffect />
                   <div className="flex-1 flex flex-col justify-center items-center relative z-10">
                     <div className="text-white text-center text-lg font-semibold">
                       Doing nothing is the devil's game
@@ -123,6 +126,7 @@ function App() {
               </div>
             </div>
             <div className="bento-card relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl flex-1">
+              <GlowEffect />
               <div className="flex-1 flex flex-col gap-6 p-8 relative z-10">
                 <div className="grow flex flex-col gap-6">
                   <div className="flex gap-6 h-fit items-center">
@@ -199,7 +203,7 @@ function App() {
                     className="bg-slate-800 rounded-2xl h-12 w-12 flex items-center justify-center hover:scale-110"
                   >
                     <svg
-                      class="fill-slate-400"
+                      className="fill-slate-400"
                       width="20px"
                       height="20px"
                       version="1.1"
@@ -232,6 +236,7 @@ function App() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64">
+              <GlowEffect />
               <div className="flex-1 flex flex-col justify-between p-6 relative z-10">
                 <div className="flex gap-4">
                   <div className="bg-slate-700 p-3 rounded-2xl h-fit w-fit flex items-center justify-center shrink-0">
@@ -250,9 +255,12 @@ function App() {
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 col-span-2"></div>
-
-              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 group"></div>
+              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 col-span-2">
+                <GlowEffect />
+              </div>
+              <div className="relative overflow-hidden cursor-pointer flex transition-all duration-300 hover:scale-[1.01] bg-slate-800/50 backdrop-blur-[4px] rounded-4xl h-64 group">
+                <GlowEffect />
+              </div>
             </div>
           </div>
         </div>

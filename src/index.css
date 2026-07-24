@@ -1,48 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=JetBrains+Mono:wght@300..800&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
-body {
-    color: white;
-    background-color: #0b0c10;
-    height: 100vh;
+html, body {
+    color: #0f172a;
+    background-color: #fafafa;
+    min-height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 #root {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.main-content {
-    font-family: Onest, sans-serif;
+.font-serif {
+    font-family: 'Newsreader', serif;
 }
 
-/* Bento card mouse follow spotlight effect */
-.bento-card {
-    position: relative;
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.bento-card::before {
-    background: radial-gradient(
-        350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-        rgba(255, 255, 255, 0.08),
-        transparent 60%
-    );
-    content: "";
-    height: 100%;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: var(--mouse-alpha, 0);
-    transition: opacity 500ms ease;
-    border-radius: inherit;
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Glass & Card Utility Effects */
+.light-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.light-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
 }

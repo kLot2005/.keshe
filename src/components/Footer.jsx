@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="w-full text-center text-xs font-mono text-slate-500 py-8 border-t border-slate-200 bg-white">
       <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          Copyright © 2025{" "}
+          Copyright © 2026{" "}
           <a
             href="https://keshe.dev"
             target="_blank"
@@ -16,7 +16,9 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4 text-slate-400">
-          <a href="#home" className="hover:text-slate-700">Back to Top ↑</a>
+          <a href="#home" className="hover:text-slate-700">
+            Back to Top ↑
+          </a>
         </div>
       </div>
     </footer>

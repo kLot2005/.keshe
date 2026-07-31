@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import GitHubContributions from "./GitHubContributions";
 
 export default function AboutSection() {
   return (
@@ -69,7 +70,11 @@ export default function AboutSection() {
 
         </div>
 
+        {/* GitHub Contributions Activity Calendar */}
+        <GitHubContributions />
+
       </motion.div>
     </section>
   );
 }
+
